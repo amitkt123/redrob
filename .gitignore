@@ -1,0 +1,6 @@
+data/candidates.jsonl
+data/*.gz
+__pycache__/
+*.pyc
+.venv/
+.DS_Store

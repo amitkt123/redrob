@@ -1,0 +1,10 @@
+# Core ranking dependencies — CPU-only, no network needed at ranking time.
+scikit-learn>=1.3,<2.0        # TF-IDF vectorizer + cosine (linear_kernel)
+numpy>=1.24                   # pulled in by scikit-learn; pinned for reproducibility
+scipy>=1.10                   # sparse matrices behind TF-IDF
+
+# Optional: sandbox UI only (not required to produce the submission CSV)
+streamlit>=1.30 ; python_version >= "3.9"
+
+# Optional: only for regenerating the deck/PDF, not for ranking
+reportlab>=4.0

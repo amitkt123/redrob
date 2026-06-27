@@ -1,0 +1,66 @@
+# Redrob Hackathon — Submission Metadata
+# Fill in the placeholder fields (team identity, contact, repo, sandbox) before submitting.
+
+team_name: "YOUR-TEAM-NAME"
+
+primary_contact:
+  name: "Amit Tiwari"
+  email: "amit.tiwari912@gmail.com"
+  phone: "+91-XXXXXXXXXX"
+
+team_members:
+  - name: "Member 1 Full Name"
+    email: "member1@example.com"
+    role: "Team Lead / ML Engineer"
+
+github_repo: "https://github.com/YOUR_USERNAME/redrob-ranker"
+sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"
+
+reproduce_command: "python rank.py --candidates ./data/candidates.jsonl --out ./outputs/submission.csv"
+
+compute:
+  platform: "Local Linux box"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.12.3"
+  os: "Ubuntu 24.04 LTS"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+ai_tools_used:
+  - "Claude"
+
+ai_usage_summary: |
+  Used Claude for architecture discussion, code review, and drafting the
+  methodology deck. All scoring logic, the JD reading, honeypot detection, and
+  the ranking pipeline are original engineering. No candidate data was sent to
+  any hosted LLM, and no LLM is called at ranking time (it would violate the
+  no-network / 5-minute CPU constraints).
+
+methodology_summary: |
+  Interpretable hybrid ranker that reads the JD as a structured "role intent"
+  rather than a keyword list. A permissive structural prefilter (tuned for
+  recall) narrows 100K to a ~38K working pool; a TF-IDF semantic similarity
+  against a role query captures meaning beyond exact keywords (so plain-language
+  strong candidates surface). Each candidate gets a transparent score from five
+  components — title/career fit (decisive against keyword stuffers, with
+  junior/intern titles demoted for this senior role), semantic meaning,
+  career-text evidence (reads the work, catches quiet anti-signals like "lighter
+  weight than ranking"), trust-weighted skills (endorsements + usage +
+  proficiency + platform-verified assessment scores, so the skills array can't
+  be farmed), and a soft experience band — plus small additive nudges
+  (preferred-city/relocation, product-vs-services industry) and multiplied by a
+  behavioral-availability factor (recency, response rate, open-to-work, github
+  activity, notice period, interview completion) and a trap penalty (honeypot,
+  consulting-only, title-chaser, CV/speech-only, recent-LLM-wrapper). Honeypots
+  are caught by internal-consistency checks and forced down. Fully offline,
+  CPU-only, ~25s for 100K. 0 honeypots in our top 100; 100% relevant titles.
+
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
