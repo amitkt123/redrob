@@ -1,17 +1,17 @@
 # Redrob Hackathon — Submission Metadata
 # Fill in the placeholder fields (team identity, contact, repo, sandbox) before submitting.
 
-team_name: "YOUR-TEAM-NAME"
+team_name: "Datom"
 
 primary_contact:
-  name: "Amit Tiwari"
+  name: "Amit Kumar Tiwari"
   email: "amit.tiwari912@gmail.com"
-  phone: "+91-XXXXXXXXXX"
+  phone: "+91-6306682230"
 
 team_members:
-  - name: "Member 1 Full Name"
-    email: "member1@example.com"
-    role: "Team Lead / ML Engineer"
+  - name: "Amit Kumar Tiwari"
+    email: "amit.tiwari912@gmail.com"
+    role: ""
 
 github_repo: "https://github.com/YOUR_USERNAME/redrob-ranker"
 sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"
@@ -36,7 +36,7 @@ ai_usage_summary: |
   Used Claude for architecture discussion, code review, and drafting the
   methodology deck. All scoring logic, the JD reading, honeypot detection, and
   the ranking pipeline are original engineering. No candidate data was sent to
-  any hosted LLM, and no LLM is called at ranking time (it would violate the
+  any hosted LLM, and no LLM is called at ranking time ( as it would violate the
   no-network / 5-minute CPU constraints).
 
 methodology_summary: |
